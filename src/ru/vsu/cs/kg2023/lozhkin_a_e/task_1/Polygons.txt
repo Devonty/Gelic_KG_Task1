@@ -1,0 +1,8 @@
+int x[], y[];
+
+// doorSpliter
+x = new int[]{288, 286, 292, 296};
+y = new int[]{307, 148, 148, 307};
+Polygon doorSpliter = new Polygon(x, y, x.length);
+g.fillPolygon(doorSpliter);
+
