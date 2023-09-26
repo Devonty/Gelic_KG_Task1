@@ -1,6 +1,8 @@
 package ru.vsu.cs.kg2023.lozhkin_a_e.task_1;
 
 import ru.vsu.cs.kg2023.lozhkin_a_e.task_1.elements.Car;
+import ru.vsu.cs.kg2023.lozhkin_a_e.task_1.elements.Road;
+import ru.vsu.cs.kg2023.lozhkin_a_e.task_1.elements.Sky;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,10 +13,15 @@ import java.awt.event.MouseEvent;
 
 public class DrawPanel extends JPanel {
     private Car car;
+    private Road road;
+
+    private Sky sky;
 
     public DrawPanel() {
         car = new Car();
-        Timer timer = new Timer(15, new ActionListener() {
+        road = new Road();
+        sky = new Sky();
+        Timer timer = new Timer(25, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 repaint();
             }
@@ -32,10 +39,9 @@ public class DrawPanel extends JPanel {
     @Override
     public void paint(Graphics gr) {
         Graphics2D g = (Graphics2D) gr;
-        // background
-        g.setColor(new Color(88, 189, 182));
-        g.fillRect(0,0,getWidth(), getHeight());
         // car
+        sky.draw(g);
+        road.draw(g);
         car.draw(g);
     }
 }
